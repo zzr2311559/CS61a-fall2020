@@ -118,7 +118,7 @@ def false_func():
     print("47")
 
 """notice the difference between with_if_statement and with_if_function is that the former execute cond() and only one from true_func() to false_func(),
-   while the later execute them all in 'if_function(cond(), true_func(), false_func())'.
+   while the latter execute them all in 'if_function(cond(), true_func(), false_func())'.
    And also, we apply the knowledge about 'non-pure functions' that learned from the lecture, which in this case is to 'print' instead of to 'return' 
 """
     
