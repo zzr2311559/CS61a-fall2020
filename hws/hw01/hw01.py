@@ -18,6 +18,8 @@ def a_plus_abs_b(a, b):
         f = add
     return f(a, b)
 
+"""mention what is a value and what is a function, a bult-in function can be binded to a new name as this case showes
+"""
 
 def two_of_three(x, y, z):
     """Return a*a + b*b, where a and b are the two smallest members of the
@@ -39,6 +41,8 @@ def two_of_three(x, y, z):
     """
     return x*x + y*y + z*z - max(x , y, z)*max(x, y, z)
 
+"""using reverse thinking
+"""
 
 def largest_factor(n):
     """Return the largest factor of n that is smaller than n.
@@ -57,6 +61,9 @@ def largest_factor(n):
             return factor
         factor -= 1
 
+"""start with while statement(while factor > 0), we build a loop that keep finding if the current factor is the number that n can be divided evenly 
+   from largest to smallest so that we can be sure that the first factor that been found is the largest factor   
+"""     
 
 def if_function(condition, true_result, false_result):
     """Return true_result if condition is a true value, and
@@ -75,7 +82,6 @@ def if_function(condition, true_result, false_result):
         return true_result
     else:
         return false_result
-
 
 def with_if_statement():
     """
@@ -111,6 +117,11 @@ def false_func():
     "*** YOUR CODE HERE ***"
     print("47")
 
+"""notice the difference between with_if_statement and with_if_function is that the former execute cond() and only one from true_func() to false_func(),
+   while the later execute them all in 'if_function(cond(), true_func(), false_func())'.
+   And also, we apply the knowledge about 'non-pure functions' that learned from the lecture, which in this case is to 'print' instead of to 'return' 
+"""
+    
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
     length.
@@ -137,3 +148,6 @@ def hailstone(n):
         step += 1
         print(n)
     return step
+
+"""starting with 'while' loop(while n != 1)
+"""
