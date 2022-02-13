@@ -3,4 +3,6 @@ This repo is a record for my studying through cs61a that provided by UC berkeley
 
 Course website: [CS61a/fa20](https://inst.eecs.berkeley.edu/~cs61a/fa20/)
 
+Reference book: [Composing Programs](http://composingprograms.com/pages/11-getting-started.html)
+
 You can find all the versions of this course here: [full versions](https://inst.eecs.berkeley.edu/~cs61a/archives.html)
