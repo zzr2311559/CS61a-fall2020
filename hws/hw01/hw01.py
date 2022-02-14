@@ -61,7 +61,7 @@ def largest_factor(n):
             return factor
         factor -= 1
 
-"""start with while statement(while factor > 0), we build a loop that keep finding if the current factor is the number that n can be divided evenly 
+"""start with while statement(while factor > 0), we build a loop that keep finding if the current factor is the number by which n can be divided evenly 
    from largest to smallest so that we can be sure that the first factor that been found is exactly the largest factor   
 """     
 
