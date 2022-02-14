@@ -18,7 +18,7 @@ def a_plus_abs_b(a, b):
         f = add
     return f(a, b)
 
-"""mention what is a value and what is a function, a bult-in function can be binded to a new name as this case showes
+"""mention what is a value and what is a function, a bult-in function can be bound to a new name as this case showes
 """
 
 def two_of_three(x, y, z):
@@ -62,7 +62,7 @@ def largest_factor(n):
         factor -= 1
 
 """start with while statement(while factor > 0), we build a loop that keep finding if the current factor is the number that n can be divided evenly 
-   from largest to smallest so that we can be sure that the first factor that been found is the largest factor   
+   from largest to smallest so that we can be sure that the first factor that been found is exactly the largest factor   
 """     
 
 def if_function(condition, true_result, false_result):
@@ -119,7 +119,7 @@ def false_func():
 
 """notice the difference between with_if_statement and with_if_function is that the former execute cond() and only one from true_func() to false_func(),
    while the latter execute them all in 'if_function(cond(), true_func(), false_func())'.
-   And also, we apply the knowledge about 'non-pure functions' that learned from the lecture, which in this case is to 'print' instead of to 'return' 
+   And also, we apply the knowledge about 'non-pure functions' that learned from the lecture, which in this case the side effect is 'print'
 """
     
 def hailstone(n):
