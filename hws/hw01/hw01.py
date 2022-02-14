@@ -151,3 +151,23 @@ def hailstone(n):
 
 """starting with 'while' loop(while n != 1)
 """
+
+"""-----------------------------------------------------------------------------------------------
+    refined version of the solution of hailstone edited in 14/02/2022
+"""
+def hailstone(n):
+    step = 1
+    print(n)
+    while n != 1:
+        n = branch(n)
+        print(n)
+        step += 1
+    return step
+
+def branch(n):
+    """ Do the branch evaluation depending on the number is odd or even. """
+    if n % 2 == 0:
+        n = n // 2
+    else:
+        n = 3 * n + 1
+    return n
