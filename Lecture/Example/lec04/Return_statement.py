@@ -42,6 +42,6 @@ def square(x):
 def positive(x):
   return man(o, square(x) - 100)
 
-def inverse(f):
-  """Return g(y) such that g(f(x)) -> x."""
+def inverse(f):                                   # This function basically says evaluate a function which is going through [0, infinite integer) 
+  """Return g(y) such that g(f(x)) -> x."""       # to find a value that corresponds to the number that the given 'y' specified
   return lambda y : search(lambda x: f(x) == y)
