@@ -1,3 +1,4 @@
+"""higher-order function is a function that takes a function as an argument value or returns a function as a return value, This is a example to dispaly the former. """
 def sum_naturals(n):
   """Sum the first N natural numbers
   
