@@ -22,7 +22,7 @@ def reasonable(n):
   True
   >>> reasonable(100)
   True
-  >>> reasonable(10000000000000000000000000000000000000)
+  >>> reasonable(10 ** 1000)
   False
   """
   return n == 0 or 1 / n != 0
