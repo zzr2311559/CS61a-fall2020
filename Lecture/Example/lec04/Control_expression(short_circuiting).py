@@ -1,7 +1,7 @@
 from math import sqrt
 
 def has_big_sqrt(x):
-  """ Find if the square root of x is greater than 10 and make sure that x is a number greater than 0
+  """ Find if the square root of x is greater than 10 and make sure that x is a number greater than 0. Remeber that the order of the stuff beside 'and' counts!
   
   >>> has_big_sqrt(100)
   False
@@ -16,7 +16,7 @@ def has_big_sqrt(x):
   
   
 def reasonable(n):
-""" Decide if n is too big and make sure that when n = 0, the programme still work
+""" Decide if n is too big and make sure that when n = 0, the programme still work. Remeber that the order of the stuff beside 'and' counts!
   
   >>> reasonable(0)
   True
