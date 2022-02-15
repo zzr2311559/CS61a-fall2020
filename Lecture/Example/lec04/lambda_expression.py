@@ -3,7 +3,7 @@
    gives the function an intrinsic name. You can see this difference when you type the function name in the python intepreter. If the function 
    is created by lambda expression, it will display something like <function <lambda> at 0x1003c1bf8>, while the funciton is created using def statement,
    it will dispaly something like <function square at 0x10293e730>(if you named your function 'square'). Try the example yourself will help you 
-   get better understanding of this concept.
+   get better understanding of this concept, and you can go to the pythontutor.com to see the environment diagram for a more explicit visualization.
    
    >>> square(3)
    9
