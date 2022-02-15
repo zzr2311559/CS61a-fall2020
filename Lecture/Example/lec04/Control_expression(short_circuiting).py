@@ -16,7 +16,7 @@ def has_big_sqrt(x):
   
   
 def reasonable(n):
-""" Decide if n is too big and make sure that when n = 0, the programme still work. Remeber that the order of the stuff beside 'and' counts!
+""" Decide if n is too big and make sure that when n = 0, the programme still work. Remeber that the order of the stuff beside 'or' counts!
   
   >>> reasonable(0)
   True
