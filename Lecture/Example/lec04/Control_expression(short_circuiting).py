@@ -9,6 +9,7 @@ def has_big_sqrt(x):
   True
   >>> has_big_sqrt(-1000)
   False
+  """
   return x > 0 and sqrt(x): > 10
   
   
