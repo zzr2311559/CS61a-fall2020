@@ -45,3 +45,19 @@ def positive(x):
 def inverse(f):                                   # This function basically says evaluate a function which is going through [0, infinite integer) 
   """Return g(y) such that g(f(x)) -> x."""       # to find a value that corresponds to the number that the given 'y' specified
   return lambda y : search(lambda x: f(x) == y)
+
+def inverse_(f):                                  # an alternative way of doing inverse
+  """ Return a function g(y) that returns x such that f(x) == y.
+  >>> sqrt = inverse_(square)
+  >>> sqrt(16)
+  4
+  >>> sqrt = inverse_(square)(25)
+  >>> sqrt
+  5
+  """
+  def inverse_of_f(y):
+    def is_inverse_of_y(x):
+      return f(x) == y
+    return search(is_inverse_of_y)
+  return inverse_of_f
+
