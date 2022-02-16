@@ -46,7 +46,10 @@ def inverse(f):                                   # This function basically says
   """Return g(y) such that g(f(x)) -> x."""       # to find a value that corresponds to the number that the given 'y' specified
   return lambda y : search(lambda x: f(x) == y)
 
-def inverse_(f):                                  # an alternative way of doing inverse
+def inverse_(f):                                                      # An alternative way of doing inverse. 
+                                                                      # Notice that everytime a nested def statement has been created, a generalization is completed. 
+                                                                      # So you can say that it is because I have to do a generalizaion, I created
+                                                                      # a nested def statement like this.
   """ Return a function g(y) that returns x such that f(x) == y.
   >>> sqrt = inverse_(square)
   >>> sqrt(16)
