@@ -62,3 +62,20 @@ def sum_cubes(n):
   225
   """
   return summation(n, cube)
+
+
+"""----------------------------------------------------------------------------
+   An alternative way to do
+"""
+def sum_naturals(n):
+    def summation(n, term):
+        total = 0
+        k = 1
+        while k <= n:
+            total, k = total + term(k), k + 1
+        return total
+    return summation(n, lambda x: x)
+
+print(sum_naturals(5))
+
+
