@@ -25,3 +25,6 @@ def curry2(f):
     return  h
   return g
 
+""" An alternative way to make curry2
+"""
+curry2 = lambda f: lambda x: lambda y: f(x, y)
