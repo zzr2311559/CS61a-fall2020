@@ -142,6 +142,5 @@ def cycle(f1, f2, f3):
                 x = f3(x)
                 if i == 0:
                     return x
-            return x
         return func2
     return func1
