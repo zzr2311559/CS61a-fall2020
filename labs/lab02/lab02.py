@@ -144,3 +144,22 @@ def cycle(f1, f2, f3):
                     return x
         return func2
     return func1
+
+"""----------------------------------------------------
+""" An alternative way to do 'cycle'
+
+def cycle(f1, f2, f3):
+    def func1(n):
+        def func2(x):
+            i = 1
+            while n >= i:
+                if i % 3 == 1:
+                    x = f1(x)
+                elif i % 3 == 2:
+                    x = f2(x)
+                elif i % 3 == 0:
+                    x = f3(x)
+                i += 1
+            return x
+        return func2
+    return func1
