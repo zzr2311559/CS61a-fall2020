@@ -124,9 +124,9 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
-    def func1(n):
-        def func2(x):
-            i = n
+    def func1(n):               # Notice that in the nested def statement, if assigning a value to a name, then that name will be considered as a local variable,  
+        def func2(x):           # which means you can not refer to it's parent's same-name value.(That happens even before the assignment happens!). But if you 
+            i = n               # don't assign a value to it, it can search the parent's frame to get access to that value.
             while i >= 0:
                 if i == 0:
                     return x
