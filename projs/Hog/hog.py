@@ -177,8 +177,8 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
     while score0 < goal and score1 < goal:
-        # num_rolls_0 = strategy0(score0, score1)
-        score0 = take_turn(strategy0(score0, score1), score1, dice) + score0
+        # num_rolls_0 = strategy0(score0, score1)                                   # I had stuck here debugging for a long time until I notice that I need to call strategy()
+        score0 = take_turn(strategy0(score0, score1), score1, dice) + score0        # every turn. Because scores changes after a turn finished!                
         if score0 >= goal:
             return score0, score1
         while extra_turn(score0, score1):
