@@ -177,20 +177,24 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
     while score0 < goal and score1 < goal:
-        # num_rolls_0 = strategy0(score0, score1)                                   # I had stuck here debugging for a long time until I notice that I need to call strategy()
-        score0 = take_turn(strategy0(score0, score1), score1, dice) + score0        # every turn. Because scores changes after a turn finished!                
+        # num_rolls_0 = strategy0(score0, score1)
+        score0 = take_turn(strategy0(score0, score1), score1, dice) + score0
+        say = say(score0, score1)                                                 # Notice that say is a function that passed into here
         if score0 >= goal:
             return score0, score1
         while extra_turn(score0, score1):
             score0 = take_turn(strategy0(score0, score1), score1, dice) + score0
+            say = say(score0, score1)
             if score0 >= goal:
                 return score0, score1
         # num_rolls_1 = strategy1(score1, score0)
         score1 = take_turn(strategy1(score1, score0), score0, dice) + score1
+        say = say(score0, score1)
         if score1 >= goal:
             return score0, score1
         while extra_turn(score1, score0):
             score1 = take_turn(strategy1(score1, score0), score0, dice) + score1
+            say = say(score0, score1)
             if score1 >= goal:
                 return score0, score1
     # END PROBLEM 5
@@ -279,6 +283,21 @@ def announce_highest(who, last_score=0, running_high=0):
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
+    def fun1(score0, score1):
+        last_score_local = last_score
+        running_high_local = running_high
+        if who == 0:
+            if score0 - last_score_local > running_high_local:
+                running_high_local = score0 - last_score_local
+                print(running_high_local, 'point(s)! The most yet for Player', who)
+            last_score_local = score0
+        else:
+            if score1 - last_score_local > running_high_local:
+                running_high_local = score1 - last_score_local
+                print(running_high_local, 'point(s)! The most yet for Player', who)
+            last_score_local = score1
+        return announce_highest(who, last_score_local,running_high_local)
+    return fun1
     # END PROBLEM 7
 
 
@@ -305,7 +324,7 @@ def always_roll(n):
     return strategy
 
 
-def make_averaged(original_function, trials_count=1000):
+def make_averaged(original_function, trials_count=1000):                        # Pay attention to *arg
     """Return a function that returns the average value of ORIGINAL_FUNCTION
     when called.
 
@@ -319,6 +338,14 @@ def make_averaged(original_function, trials_count=1000):
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    def averaged_dice(*arg): 
+        i = 0
+        sum = 0
+        while i < trials_count:
+            sum += original_function(*arg)
+            i += 1
+        return sum / trials_count
+    return averaged_dice
     # END PROBLEM 8
 
 
@@ -425,4 +452,3 @@ def run(*args):
 
     if args.run_experiments:
         run_experiments()
- 
