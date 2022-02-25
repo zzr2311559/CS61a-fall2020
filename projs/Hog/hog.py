@@ -2,6 +2,7 @@
 
 from dice import six_sided, four_sided, make_test_dice
 from ucb import main, trace, interact
+import random
 
 GOAL_SCORE = 100  # The goal of Hog is to score 100 points.
 FIRST_101_DIGITS_OF_PI = 31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
@@ -338,7 +339,7 @@ def make_averaged(original_function, trials_count=1000):                        
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
-    def averaged_dice(*arg): 
+    def averaged_dice(*arg):
         i = 0
         sum = 0
         while i < trials_count:
@@ -360,6 +361,17 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    i = 1
+    score = 0
+    highest_score = 0
+    dice_num = 0
+    while i <= 10:
+        score = make_averaged(roll_dice)(i, dice)
+        if score > highest_score:
+            highest_score = score
+            dice_num = i
+        i += 1
+    return dice_num
     # END PROBLEM 9
 
 
@@ -409,7 +421,10 @@ def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     rolls NUM_ROLLS otherwise.
     """
     # BEGIN PROBLEM 10
-    return 6  # Replace this statement
+    if free_bacon(opponent_score) >= cutoff:
+        return 0
+    else:
+        return num_rolls  # Replace this statement
     # END PROBLEM 10
 
 
@@ -419,7 +434,12 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     Otherwise, it rolls NUM_ROLLS.
     """
     # BEGIN PROBLEM 11
-    return 6  # Replace this statement
+    if extra_turn(free_bacon(opponent_score) + score, opponent_score) == True:
+        return 0
+    elif free_bacon(opponent_score) >= cutoff:
+        return 0
+    else:
+        return num_rolls  # Replace this statement
     # END PROBLEM 11
 
 
@@ -429,7 +449,15 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Replace this statement
+    i = 1
+    while score <= opponent_score:
+        if i <= 5:
+            return extra_turn_strategy(score, opponent_score, 8, 4)
+    if score > opponent_score:
+        if extra_turn(free_bacon(opponent_score) + score, opponent_score) == True:
+            return 0
+        else:
+            return random.randint(0, 2)
     # END PROBLEM 12
 
 ##########################
